@@ -57,13 +57,12 @@ urlpatterns = [
             pakckage_json['scripts']['build'] += ' && djbuild'
             f.seek(0)
             f.write(json.dumps(pakckage_json, indent=2))
-        print('TODO: edit `index.json`...')
-        # TODO:
-        # edit `index.json` build
-        # with open('index.json', 'r+'):
-        """
-        // sample:
-        index: path.resolve(__dirname, '../templates/{project}/index.html'),
-        assetsRoot: path.resolve(__dirname, '../static'),
-        assetsSubDirectory: '{project}',
-        """
+        with cd('config'):
+            with open('index.js', 'r+'):
+                lines = f.readlines()
+                f.seek(0)
+                for line in lines:
+                    f.write(line.replace('../dist/index.html', './templates/{project}/index.html'.format(project=project))
+                            .replace('', '../static')
+                            .replace("assetsSubDirectory: 'static'",
+                                     "assetsSubDirectory: '{project}'".format(project=project)))
