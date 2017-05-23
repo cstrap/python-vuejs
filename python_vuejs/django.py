@@ -4,6 +4,8 @@ from __future__ import absolute_import, division, print_function
 import click
 import os
 from .utils import touch, cd
+import json
+from collections import OrderedDict
 
 
 @click.command()
@@ -30,6 +32,7 @@ def djangofy_vue_project(project):
     """
     Convert Vue.js webpack project into a django app
     """
+
     urls_py = """# -*- coding: utf-8 -*-
 
 from django.conf.urls import url
@@ -49,6 +52,18 @@ urlpatterns = [
         touch('index.html', 'templates/{project}/'.format(project=project))
         with open('urls.py', 'w') as f:
             f.write(urls_py)
-    # TODO:
-    # edit `index.json` build
-    # edit `package.json` build
+        with open('package.json', 'r+') as f:
+            pakckage_json = json.loads(''.join(f.readlines()), object_pairs_hook=OrderedDict)
+            pakckage_json['scripts']['build'] += ' && djbuild'
+            f.seek(0)
+            f.write(json.dumps(pakckage_json, indent=2))
+        print('TODO: edit `index.json`...')
+        # TODO:
+        # edit `index.json` build
+        # with open('index.json', 'r+'):
+        """
+        // sample:
+        index: path.resolve(__dirname, '../templates/{project}/index.html'),
+        assetsRoot: path.resolve(__dirname, '../static'),
+        assetsSubDirectory: '{project}',
+        """
