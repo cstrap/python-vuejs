@@ -3,11 +3,12 @@ from __future__ import absolute_import, division, print_function
 
 import click
 import os
+from .utils import touch, cd
 
 
 @click.command()
 @click.argument('project')
-def djangobuild(project):
+def django_build(project):
     """
     Called inside `package.json`
     """
@@ -25,14 +26,29 @@ def djangobuild(project):
 
 @click.command()
 @click.argument('project')
-def djangofy(project):
+def djangofy_vue_project(project):
     """
     Convert Vue.js webpack project into a django app
     """
-    os.makedirs('{project}/templates/{project}/'.format(project=project))
+    urls_py = """# -*- coding: utf-8 -*-
+
+from django.conf.urls import url
+from django.views.generic.base import TemplateView
+
+urlpatterns = [
+    url(r'^{project}/$', TemplateView.as_view(template_name='{project}/index.html'), name='vue_index'),
+]
+
+""".format(project=project)
+    try:
+        os.makedirs('{project}/templates/{project}/'.format(project=project))
+    except FileExistsError:
+        pass
+    with cd(project):
+        touch('__init__.py')
+        touch('index.html', 'templates/{project}/'.format(project=project))
+        with open('urls.py', 'w') as f:
+            f.write(urls_py)
     # TODO:
-    # create urls.py
-    # create __init__.py
-    # create empty index.html under templates/project
     # edit `index.json` build
     # edit `package.json` build

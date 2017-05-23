@@ -36,9 +36,9 @@ setup(
             'checkenv=python_vuejs.vuejs:check_env',
             'vuecli=python_vuejs.vuejs:install_vue_cli',
             'startvueapp=python_vuejs.vuejs:startvueapp',
-            'startvueapp=python_vuejs.vuejs:vuedev',
-            'djangobuild=python_vueks.django:djbuild',
-            'djangofy=python_vuejs.django:djvue',
+            'vuedev=python_vuejs.vuejs:vuedev',
+            'djbuild=python_vueks.django:django_build',
+            'djvue=python_vuejs.django:djangofy_vue_project',
         ]
     },
     include_package_data=True,
