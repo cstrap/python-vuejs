@@ -35,18 +35,7 @@ TODO
 ----
 
 ###  build frontend for django
-* djangofy
-* replace in `package.json` => `"build": "node build/build.js && python djangofy.py"`
-* replace build in `index.json`
-```
-// sample
-module.exports = {
-  build: {
-    env: require('./prod.env'),
-    index: path.resolve(__dirname, '../templates/frontend/index.html'),
-    assetsRoot: path.resolve(__dirname, '../static'),
-    assetsSubDirectory: 'fe',
-```
+* WIP
 
 ### Supporting flask
 * eg https://github.com/taogeT/flask-vue (no js inside package)
