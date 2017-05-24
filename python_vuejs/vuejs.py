@@ -30,7 +30,10 @@ class VueJs(object):
         """
         vue-cli version checker
         """
-        return check_output('vue -V'.split()).decode('utf-8').rsplit('.')[0]
+        try:
+            return check_output('vue -V'.split()).decode('utf-8').rsplit('.')[0]
+        except OSError:
+            return False
 
     @staticmethod
     def install_cli():
@@ -61,8 +64,10 @@ class VueJsBuilder(object):
             VueJs.project_setup(project)
             click.echo(click.style('Installing dependencies\n', fg='green'))
             VueJs.install_dependencies(project)
+            return True
         else:
-            click.echo(click.style('Please install vue-cli via `vuecli` command'))
+            click.echo(click.style('Please install vue-cli via `vuecli` command', fg='white', bg='red'))
+            return False
 
 
 @click.command()
