@@ -1,18 +1,33 @@
 =============================
 Python and Vue.js gule
 =============================
-
 .. image:: https://img.shields.io/pypi/v/python_vuejs.svg
         :target: https://pypi.python.org/pypi/python_vuejs
 
 .. image:: https://pyup.io/repos/github/cstrap/python_vuejs/shield.svg
-     :target: https://pyup.io/repos/github/cstrap/python_vuejs/
+     :target: https://pyup.io/repos/github/cstrap/python-vuejs/
      :alt: Updates
 
 Gluing Python and `Vue.js <https://vuejs.org/>`_ with a set of scripts that automate the dev and build process.
 
+Projects aims to be agnostic, just use it in order to automate the boring stuff to setup a Vue.js project.
+
+The point is: you start with SPA app inside your current project and then, extract it without having the dependency with backend framework. 
+
+Feel free to contribute with PRs and opening issues.
+
+Thanks!
+Cheers! 🍻
+
 * Free software: MIT license
 * Documentation: https://pythonhosted.org/python_vuejs.
+
+------------------
+Requirements
+------------------
+
+* Python 2.7+ or 3.4+
+* nodejs > 5 and npm > 3
 
 ------------------
 Commands reference
