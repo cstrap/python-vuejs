@@ -2,6 +2,11 @@
 History
 =======
 
+0.0.3 (2017-05-24)
+------------------
+
+* Added full django support with single command ``djstartvueapp``
+
 0.0.2 (2017-05-24)
 ------------------
 
