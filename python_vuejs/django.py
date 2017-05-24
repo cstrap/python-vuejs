@@ -5,7 +5,7 @@ import click
 import os
 import sys
 from .utils import touch, cd
-from .vuejs import VueJs, VueJsBuilder
+from .vuejs import VueJsBuilder
 import json
 from collections import OrderedDict
 

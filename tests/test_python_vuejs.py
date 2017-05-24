@@ -6,7 +6,7 @@ test_python_vuejs
 ----------------------------------
 
 Tests for `python_vuejs` module.
-"""
+
 
 
 import sys
@@ -37,3 +37,5 @@ class TestPython_vuejs(unittest.TestCase):
         help_result = runner.invoke(cli.main, ['--help'])
         assert help_result.exit_code == 0
         assert '--help  Show this message and exit.' in help_result.output
+
+"""
