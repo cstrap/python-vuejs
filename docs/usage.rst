@@ -53,6 +53,8 @@ The build process is::
 
 Refer to the `Vue.js https://vuejs.org/`_ documentation for other stuff not related to python-vuejs wrappers.
 
-Happy coding! 
+The cool thing is that you can detach ``frontend`` app and deploy it wherever you want. Also, you can move it into another repo. 🦄
+
+Happy coding! 👑
 
 
