@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, division, print_function
 
 import click
-
-from .utils import cd
-
 from subprocess import check_output
+from .utils import cd
 
 try:
     from subprocess import call as run
@@ -42,6 +39,9 @@ def install_vue_cli():
 @click.command()
 @click.argument('project')
 def startvueapp(project):
+    """
+    Init vue project via vue-cli
+    """
     run('vue init webpack {project}'.format(project=project).split())
     with cd(project):
         run(['npm install'.split()])
@@ -49,4 +49,7 @@ def startvueapp(project):
 
 @click.command()
 def vuedev():
+    """
+    Run frontend dev server via npm
+    """
     run(['npm run dev'.split()])
