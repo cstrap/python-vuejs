@@ -16,6 +16,8 @@ requirements = [
     'colorama',
 ]
 
+test_requirements = []
+
 setup(
     name='python_vuejs',
     version='0.0.4',
