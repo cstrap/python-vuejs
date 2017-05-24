@@ -24,6 +24,9 @@ Gluing Python and Vue.js with a set of scripts
 * Free software: MIT license
 * Documentation: https://python-vuejs.readthedocs.io.
 
+Commands reference
+------------------
+
 
 Features
 --------
