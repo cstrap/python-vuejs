@@ -12,6 +12,7 @@ Python and Vue.js gule
      :target: https://pyup.io/repos/github/cstrap/python-vuejs/
      :alt: Python 3
 
+
 Gluing Python and `Vue.js <https://vuejs.org/>`_ with a set of scripts that automate the dev and build process.
 
 Projects aims to be agnostic, just use it in order to automate the boring stuff to setup a Vue.js project.
