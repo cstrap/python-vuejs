@@ -3,7 +3,9 @@ from __future__ import absolute_import, division, print_function
 
 import click
 import os
+import sys
 from .utils import touch, cd
+from .vuejs import VueJs, VueJsBuilder
 import json
 from collections import OrderedDict
 
@@ -33,6 +35,8 @@ def djangofy_vue_project(project):
     Convert Vue.js webpack project into a django app
     """
 
+    click.echo(click.style('Making Vue.js {project} into django app'.format(project=project), bg='blue', fg='white'))
+
     urls_py = """# -*- coding: utf-8 -*-
 
 from django.conf.urls import url
@@ -43,10 +47,12 @@ urlpatterns = [
 ]
 
 """.format(project=project)
+
     try:
         os.makedirs('{project}/templates/{project}/'.format(project=project))
     except OSError:
         click.echo(click.style('Command already executed', fg='red'))
+        sys.exit(0)
     with cd(project):
         touch('__init__.py')
         touch('index.html', 'templates/{project}/'.format(project=project))
@@ -54,7 +60,7 @@ urlpatterns = [
             f.write(urls_py)
         with open('package.json', 'r+') as f:
             pakckage_json = json.loads(''.join(f.readlines()), object_pairs_hook=OrderedDict)
-            pakckage_json['scripts']['build'] += ' && djbuild {project}'.format(project)
+            pakckage_json['scripts']['build'] += ' && djbuild {project}'.format(project=project)
             f.seek(0)
             f.write(json.dumps(pakckage_json, indent=2))
         with cd('config'):
@@ -67,3 +73,19 @@ urlpatterns = [
                             .replace('../dist', '../static')
                             .replace("assetsSubDirectory: 'static'",
                                      "assetsSubDirectory: '{project}'".format(project=project)))
+
+    click.echo(click.style('Enjoy!', fg='green'))
+
+
+@click.command()
+@click.argument('project')
+def django_start_vue_app(project):
+    """
+    Run click commands on bash.
+    """
+    if os.path.isfile('manage.py'):
+        click.echo(click.style('Creating {project}'.format(project=project), fg='green'))
+        VueJsBuilder.startproject(project)
+        djangofy_vue_project()
+    else:
+        click.echo(click.style('Invalid django project directory', fg='red'))

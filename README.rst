@@ -67,13 +67,23 @@ Vue.js
 Django
 ------
 
-+-------------+------------------------------------------------+
-| Command     | Description                                    |
-+=============+================================================+                            
-| ``djvue``   | Make Vue.js project into a django app          |
-+-------------+------------------------------------------------+
-| ``djbuild`` | Inject into the django way into ``index.html`` |
-+-------------+------------------------------------------------+
+All you need is to run ``djstartvueapp`` into your django project directory
+
+  (env) $ djstartvueapp myapp
+  ...
+  Enjoy!
+
+List of commands avaiable:
+
++-------------------+------------------------------------------------+
+| Command           | Description                                    |
++===================+================================================+                            
+| ``djvue``         | Make Vue.js project into a django app          |
++-------------------+------------------------------------------------+
+| ``djbuild``       | Inject into the django way into ``index.html`` |
++-------------------+------------------------------------------------+
+| ``djstartvueapp`` | Create Vue.js django app                       |
++-------------------+------------------------------------------------+
 
 Flask
 -----
