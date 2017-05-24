@@ -15,7 +15,9 @@ def check_env():
     """
     Check if node > 5 and npm > 3 are installed
     """
-    out = all([check_output(['node -v'.split()]) > 'v5.0.0', check_output(['npm -v'.split()]) >= '4.0.0'])
+    node_ver = check_output('node -v'.split()).decode('utf-8').rsplit('.')[0]
+    npm_ver = check_output('npm -v'.split()).decode('utf-8').rsplit('.')[0]
+    out = all([node_ver > 'v5', npm_ver >= '4'])
     if out:
         click.echo(click.style('Found node and npm', fg='green'))
     else:
@@ -28,11 +30,11 @@ def install_vue_cli():
     """
     Install vue-cli
     """
-    out = check_output(['vue -V'.split()])
-    if out >= '2.0.0.':
+    out = check_output(['vue -V'.split()]).decode('utf-8').rsplit('.')[0]
+    if out >= '2':
         click.echo(click.style('Found valid vue-cli', fg='green'))
     else:
-        run(['npm install -g vue-cli'.split()])
+        run('npm install -g vue-cli'.split())
         click.echo(click.style('Installed vue-cli globally', fg='green'))
 
 
@@ -44,7 +46,7 @@ def startvueapp(project):
     """
     run('vue init webpack {project}'.format(project=project).split())
     with cd(project):
-        run(['npm install'.split()])
+        run('npm install'.split())
 
 
 @click.command()
@@ -52,4 +54,4 @@ def vuedev():
     """
     Run frontend dev server via npm
     """
-    run(['npm run dev'.split()])
+    run('npm run dev'.split())
