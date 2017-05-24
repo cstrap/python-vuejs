@@ -70,7 +70,7 @@ def check_env():
     """
     Check if node > 5 and npm > 3 are installed
     """
-    if node_check():
+    if VueJs.node_check():
         click.echo(click.style('Found node and npm', fg='green'))
     else:
         click.echo(click.style('Missing node and npm installation', fg='red'))
@@ -81,7 +81,7 @@ def install_vue_cli():
     """
     Install vue-cli
     """
-    if vue_cli_check():
+    if VueJs.vue_cli_check():
         click.echo(click.style('Found valid vue-cli', fg='green'))
     else:
         VueJs.install_cli()
