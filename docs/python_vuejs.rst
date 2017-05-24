@@ -1,27 +1,27 @@
-python_vuejs package
-====================
+python\_vuejs package
+=====================
 
 Submodules
 ----------
 
-python_vuejs.django module
---------------------------
+python\_vuejs\.django module
+----------------------------
 
 .. automodule:: python_vuejs.django
     :members:
     :undoc-members:
     :show-inheritance:
 
-python_vuejs.utils module
--------------------------
+python\_vuejs\.utils module
+---------------------------
 
 .. automodule:: python_vuejs.utils
     :members:
     :undoc-members:
     :show-inheritance:
 
-python_vuejs.vuejs module
--------------------------
+python\_vuejs\.vuejs module
+---------------------------
 
 .. automodule:: python_vuejs.vuejs
     :members:
