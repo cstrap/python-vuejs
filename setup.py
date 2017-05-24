@@ -11,26 +11,16 @@ from setuptools import setup
 
 import codecs
 
-with codecs.open('README.rst', 'r', 'utf-8') as readme_file:
-    readme = readme_file.read()
-
-with codecs.open('HISTORY.rst', 'r', 'utf-8') as history_file:
-    history = history_file.read()
-
 requirements = [
     'Click>=6.0',
     'colorama',
-]
-
-test_requirements = [
-    # TODO: put package test requirements here
 ]
 
 setup(
     name='python_vuejs',
     version='0.0.3',
     description="Gluing Python and Vue.js with a set of scripts in order to automate project and app builds",
-    long_description=readme + '\n\n' + history,
+    long_description=codecs.open('README.rst', 'r', 'utf-8').read(),
     author="Christian Strappazzon",
     author_email='lab@strap.it',
     url='https://github.com/cstrap/python-vuejs',
@@ -57,7 +47,8 @@ setup(
     zip_safe=False,
     keywords='python_vuejs',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
+        'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
@@ -66,6 +57,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Topic :: Software Development :: Libraries :: Python Modules',
     ],
     test_suite='tests',
     tests_require=test_requirements
