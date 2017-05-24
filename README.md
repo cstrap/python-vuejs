@@ -18,9 +18,10 @@ Work in progress, maybe it could be a bad idea :unicorn:
 | vuecli      | Install vue-cli                             |
 | startvueapp | Init Vue.js project via vue-cli             |
 | vuedev      | Start frontend dev server                   |
+| vuebuild    | Build Vue.js project via npm                |
 
 ### Django
 
 | Command     | Description                                 |
 |-------------|---------------------------------------------|
-| 
+| djvue       | Make Vue.js project into a django app       |
