@@ -1,7 +1,17 @@
 # python-vuejs
+
 Gluing Python web frameworks and Vue.js with a set of scripts... basically a wrapper :smile:
 
 Work in progress, maybe it could be a bad idea :unicorn:
+
+Projects aims to be agnostic, just use it in order to automate the boring stuff to setup a Vue.js project.
+
+The point is that you start with SPA app inside your current project and then, extract it without having the dependency with backend framework. 
+
+Feel free to contribute with PRs and opening issues.
+
+Thanks!
+Cheers! 🍻
 
 ## Requirements
 
@@ -22,6 +32,14 @@ Work in progress, maybe it could be a bad idea :unicorn:
 
 ### Django
 
-| Command     | Description                                 |
-|-------------|---------------------------------------------|
-| djvue       | Make Vue.js project into a django app       |
+| Command     | Description                                  |
+|-------------|----------------------------------------------|
+| djvue       | Make Vue.js project into a django app        |
+| djbuild     | Inject into the django way into `index.html` |
+
+### Flask
+
+* TODO
+
+| Command     | Description                                  |
+|-------------|----------------------------------------------|

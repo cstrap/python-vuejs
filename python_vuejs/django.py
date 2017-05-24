@@ -45,8 +45,8 @@ urlpatterns = [
 """.format(project=project)
     try:
         os.makedirs('{project}/templates/{project}/'.format(project=project))
-    except FileExistsError:
-        pass
+    except OSError:
+        click.echo(click.style('Command already executed', fg='red'))
     with cd(project):
         touch('__init__.py')
         touch('index.html', 'templates/{project}/'.format(project=project))
@@ -54,15 +54,16 @@ urlpatterns = [
             f.write(urls_py)
         with open('package.json', 'r+') as f:
             pakckage_json = json.loads(''.join(f.readlines()), object_pairs_hook=OrderedDict)
-            pakckage_json['scripts']['build'] += ' && djbuild'
+            pakckage_json['scripts']['build'] += ' && djbuild {project}'.format(project)
             f.seek(0)
             f.write(json.dumps(pakckage_json, indent=2))
         with cd('config'):
-            with open('index.js', 'r+'):
+            with open('index.js', 'r+') as f:
                 lines = f.readlines()
                 f.seek(0)
                 for line in lines:
-                    f.write(line.replace('../dist/index.html', './templates/{project}/index.html'.format(project=project))
-                            .replace('', '../static')
+                    f.write(line
+                            .replace('../dist/index.html', '../templates/{project}/index.html'.format(project=project))
+                            .replace('../dist', '../static')
                             .replace("assetsSubDirectory: 'static'",
                                      "assetsSubDirectory: '{project}'".format(project=project)))
