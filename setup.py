@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='python_vuejs',
-    version='0.0.1',
+    version='0.0.2',
     description="Gluing Python and Vue.js with a set of scripts",
     long_description=readme + '\n\n' + history,
     author="Christian Strappazzon",
