@@ -96,6 +96,7 @@ Features
 TODO
 ----
 
+* django one command step, eg ``djvuestartapp``
 * Supporting flask, eg https://github.com/taogeT/flask-vue (without js inside package)
 * Supporting other frameworks
 * Some tests 
