@@ -12,6 +12,15 @@ Python and Vue.js gule
      :target: https://pyup.io/repos/github/cstrap/python-vuejs/
      :alt: Python 3
 
+.. image:: https://img.shields.io/pypi/l/python_vuejs.svg
+    :target: https://pypi.python.org/pypi/python_vuejs
+    
+.. image:: https://img.shields.io/pypi/pyversions/python_vuejs.svg
+    :target: https://pypi.python.org/pypi/python_vuejs
+    
+.. image:: https://img.shields.io/pypi/status/python_vuejs.svg
+    :target: https://pypi.python.org/pypi/python_vuejs
+    
 
 Gluing Python and `Vue.js <https://vuejs.org/>`_ with a set of scripts that automate the dev and build process.
 
