@@ -55,3 +55,11 @@ def vuedev():
     Run frontend dev server via npm
     """
     run('npm run dev'.split())
+
+
+@click.command()
+def vuebuild():
+    """
+    Build Vue.js project via npm
+    """
+    run('npm run build'.split())

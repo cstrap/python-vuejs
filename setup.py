@@ -37,6 +37,7 @@ setup(
             'vuecli=python_vuejs.vuejs:install_vue_cli',
             'startvueapp=python_vuejs.vuejs:startvueapp',
             'vuedev=python_vuejs.vuejs:vuedev',
+            'vuebuild=python_vuejs.vuejs:vuebuild',
             'djbuild=python_vuejs.django:django_build',
             'djvue=python_vuejs.django:djangofy_vue_project',
         ]
