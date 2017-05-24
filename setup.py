@@ -1,12 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+python-vuejs
+-------------
+Gluing Python and Vue.js with a set of scripts in order to automate project and app builds
+"""
+
 from setuptools import setup
 
-with open('README.rst') as readme_file:
+import codecs
+
+with codecs.open('README.rst', 'r', 'utf-8') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
+with codecs.open('HISTORY.rst', 'r', 'utf-8') as history_file:
     history = history_file.read()
 
 requirements = [
@@ -21,7 +29,7 @@ test_requirements = [
 setup(
     name='python_vuejs',
     version='0.0.2',
-    description="Gluing Python and Vue.js with a set of scripts",
+    description="Gluing Python and Vue.js with a set of scripts in order to automate project and app builds",
     long_description=readme + '\n\n' + history,
     author="Christian Strappazzon",
     author_email='lab@strap.it',
