@@ -48,6 +48,7 @@ setup(
             'vuebuild=python_vuejs.vuejs:vuebuild',
             'djbuild=python_vuejs.django:django_build',
             'djvue=python_vuejs.django:djangofy_vue_project',
+            'djstartvueapp=python_vuejs.django:django_start_vue_app'
         ]
     },
     include_package_data=True,
