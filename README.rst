@@ -73,6 +73,8 @@ All you need is to run ``djstartvueapp`` into your django project directory::
     ...
     Enjoy!
 
+See the :ref:`django_quickstart`.
+
 List of commands avaiable:
 
 +-------------------+------------------------------------------------+
@@ -101,12 +103,11 @@ Features
 --------
 
 * Vue.js starter via vue-cli
-* Basic integration with django 
+* Integration with django via ``djstartvueapp``
 
 TODO
 ----
 
-* django one command step, eg ``djvuestartapp``
 * Supporting flask, eg https://github.com/taogeT/flask-vue (without js inside package)
 * Supporting other frameworks
 * Some tests 
