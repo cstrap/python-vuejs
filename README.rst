@@ -24,25 +24,52 @@ Gluing Python and Vue.js with a set of scripts
 * Free software: MIT license
 * Documentation: https://python-vuejs.readthedocs.io.
 
+==================
 Commands reference
-------------------
+==================
 
+Vue.js
+------
+
+===========  ============================================
+Command      Descriptio
+===========  =========================================== 
+checkenv     Check if node > 5 and npm > 3 are installed
+vuecli       Install vue-cli                            
+startvueapp  Init Vue.js project via vue-cli            
+vuedev       Start frontend dev server                  
+vuebuild     Build Vue.js project via npm                
+
+Django
+------
+
+=======  ============================================
+Command  Description                                
+=======  ============================================
+djvue    Make Vue.js project into a django app      
+djbuild  Inject into the django way into `index.html`
+
+Flask
+-----
+
+* TODO
+
+=======  ============================================
+Command  Description                                
+=======  ============================================
 
 Features
 --------
 
 * Vue.js starter via vue-cli
-
+* Basic integration with django 
 
 TODO
 ----
 
-###  build frontend for django
-* WIP
-
-### Supporting flask
-* eg https://github.com/taogeT/flask-vue (no js inside package)
-
+* Supporting flask, eg https://github.com/taogeT/flask-vue (without js inside package)
+* Supporting other frameworks
+* Some tests 
 
 Credits
 ---------
