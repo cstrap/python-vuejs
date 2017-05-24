@@ -67,11 +67,11 @@ Vue.js
 Django
 ------
 
-All you need is to run ``djstartvueapp`` into your django project directory
+All you need is to run ``djstartvueapp`` into your django project directory::
 
-  (env) $ djstartvueapp myapp
-  ...
-  Enjoy!
+    (env) $ djstartvueapp myapp
+    ...
+    Enjoy!
 
 List of commands avaiable:
 
