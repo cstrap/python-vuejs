@@ -18,4 +18,7 @@ def cd(path):
 
 
 def touch(filename, extrapath=''):
+    """
+    Like `touch` *nix command
+    """
     open(os.path.join(extrapath, filename), 'a').close()
