@@ -4,4 +4,6 @@ Usage
 
 To use Python and Vue.js integration in a project::
 
-    import python_vuejs
+    pip install python-vue 
+
+See the command reference on README.md file

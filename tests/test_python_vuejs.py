@@ -18,7 +18,6 @@ from python_vuejs import python_vuejs
 from python_vuejs import cli
 
 
-
 class TestPython_vuejs(unittest.TestCase):
 
     def setUp(self):
