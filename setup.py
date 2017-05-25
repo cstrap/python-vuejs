@@ -33,14 +33,7 @@ setup(
                  'python_vuejs'},
     entry_points={
         'console_scripts': [
-            'checkenv=python_vuejs.vuejs:check_env',
-            'vuecli=python_vuejs.vuejs:install_vue_cli',
-            'startvueapp=python_vuejs.vuejs:startvueapp',
-            'vuedev=python_vuejs.vuejs:vuedev',
-            'vuebuild=python_vuejs.vuejs:vuebuild',
-            'djbuild=python_vuejs.django:django_build',
-            'djvue=python_vuejs.django:djangofy_vue_project',
-            'djstartvueapp=python_vuejs.django:django_start_vue_app'
+            'pyvue=python_vuejs.cli:cli',
         ]
     },
     include_package_data=True,
@@ -59,6 +52,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
     test_suite='tests',
