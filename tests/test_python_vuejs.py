@@ -101,3 +101,7 @@ class TestVueJsCli(unittest.TestCase):
         result = self.runner.invoke(cli.cli, ['vuebuild'])
         mock_build.assert_called_once()
         self.assertEqual(0, result.exit_code)
+
+
+class TestDjangoCli(unittest.TestCase):
+    pass
