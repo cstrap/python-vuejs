@@ -17,5 +17,5 @@ install:
   - pip install -r requirements_dev.txt -U
 
 script:
-  - tox -e$TOXENV
+  - tox
   - coverage report
