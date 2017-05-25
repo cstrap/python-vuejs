@@ -6,13 +6,6 @@ python:
   - "3.4"
   - "3.5"
 
-env:
-  matrix:
-  - TOXENV='py27'
-  - TOXENV='py34'
-  - TOXENV='py35'
-  - TOXENV='py36'
-
 before_install:
   - pip install six coveralls flake8
   
@@ -24,5 +17,5 @@ install:
   - pip install -r requirements_dev.txt -U
 
 script:
-  - tox -e$TOXENV
+  - python setup.py test
   - coverage report
