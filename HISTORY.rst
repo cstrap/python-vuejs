@@ -2,6 +2,13 @@
 History
 =======
 
+0.1.0 (2017-05-  )
+------------------
+
+* Grouping all commands under ``pyvue`` 
+* Unit tests added
+* Docs updated 
+
 0.0.7 (2017-05-24)
 ------------------
 
