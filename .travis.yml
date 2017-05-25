@@ -2,7 +2,7 @@
 # This file will be regenerated if you run travis_pypi_setup.py
 
 language: python
-python: 3.6
+python: py36, py35, py34, py27
 
 env:
   - TOXENV=py36
@@ -14,6 +14,8 @@ env:
 install: pip install -r requirements_dev.txt -U
 
 # command to run tests, e.g. python setup.py test
-script: tox -e ${TOXENV}
-
+script: 
+  - tox -e ${TOXENV}
+  - coverage report
+ 
 after_success: coveralls
