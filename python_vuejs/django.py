@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, division, print_function
 
-import click
+import json
 import os
 import sys
-from .utils import touch, cd
-from .vuejs import VueJsBuilder
-import json
 from collections import OrderedDict
+
+import click
+
+from .utils import cd, touch
+from .vuejs import VueJsBuilder
 
 
 @click.group()
