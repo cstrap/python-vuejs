@@ -10,12 +10,9 @@ before_install:
   - pip install six coveralls flake8
   
 install:
-  - "if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then export PYVER=py27; fi"
-  - "if [[ $TRAVIS_PYTHON_VERSION == '3.4' ]]; then export PYVER=py34; fi"
-  - "if [[ $TRAVIS_PYTHON_VERSION == '3.5' ]]; then export PYVER=py35; fi"
-  - "if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then export PYVER=py36; fi"
   - pip install -r requirements_dev.txt -U
 
 script:
   - python setup.py test
-  - coverage report
+  - coverage run --source python_vuejs setup.py test
+  - coverage report -m
