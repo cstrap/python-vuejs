@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 
-import click
-from .utils import cd
 from collections import namedtuple
+from subprocess import check_output
+
+import click
+
+from .utils import cd
 
 try:
     from subprocess import call as run
 except ImportError:
     from subprocess import run
-
-from subprocess import check_output
 
 
 class VueJs(object):
