@@ -7,4 +7,3 @@ tox==2.7.0
 coverage==4.4.1
 Sphinx==1.6.1
 coveralls==1.1
-
