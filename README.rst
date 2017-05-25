@@ -26,7 +26,8 @@ Gluing Python and `Vue.js <https://vuejs.org/>`_ with a set of scripts that auto
 
 Projects aims to be agnostic, just use it in order to automate the boring stuff to setup a Vue.js project.
 
-The point is: you start with SPA app inside your current project and then, extract it without having the dependency with backend framework. 
+The point is: you start with SPA app inside your current project and then extract it without having the dependency 
+with backend framework, simply changing the ``npm`` build scripts.
 
 Feel free to contribute with PRs and opening issues.
 
@@ -67,13 +68,13 @@ Vue.js
 Django
 ------
 
-All you need is to run ``djstartvueapp`` into your django project directory::
+Run ``djstartvueapp`` into your django project directory::
 
     (env) $ djstartvueapp myapp
     ...
     Enjoy!
 
-See the :ref:`django_quickstart`.
+Follow the django quick start on docs to a complete overview.
 
 List of commands avaiable:
 
