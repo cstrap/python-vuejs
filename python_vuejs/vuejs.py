@@ -2,6 +2,7 @@
 
 import click
 from .utils import cd
+from collections import namedtuple
 
 try:
     from subprocess import call as run
@@ -60,14 +61,13 @@ class VueJs(object):
 class VueJsBuilder(object):
     @staticmethod
     def startproject(project):
+        nt = namedtuple('Result', ['status', 'message', 'color'])
         if VueJs.vue_cli_check():
             VueJs.project_setup(project)
-            click.echo(click.style('Installing dependencies\n', fg='green'))
             VueJs.install_dependencies(project)
-            return True
+            return nt(True, 'Application and dependencies installed\n', 'green')
         else:
-            click.echo(click.style('Please install vue-cli via `vuecli` command', fg='white', bg='red'))
-            return False
+            return nt(False, 'Please install vue-cli via `vuecli` command', 'red')
 
 
 @click.group()
@@ -104,7 +104,8 @@ def startvueapp(project):
     """
     Init vue project via vue-cli
     """
-    VueJsBuilder.startproject(project)
+    result = VueJsBuilder.startproject(project)
+    click.echo(click.style(result.message, fg=result.color))
 
 
 @vuecli.command()
