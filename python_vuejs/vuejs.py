@@ -70,8 +70,13 @@ class VueJsBuilder(object):
             return False
 
 
-@click.command()
-def check_env():
+@click.group()
+def vuecli():
+    pass
+
+
+@vuecli.command()
+def vuecheck():
     """
     Check if node > 5 and npm > 3 are installed
     """
@@ -81,8 +86,8 @@ def check_env():
         click.echo(click.style('Missing node and npm installation', fg='red'))
 
 
-@click.command()
-def install_vue_cli():
+@vuecli.command()
+def installvuecli():
     """
     Install vue-cli
     """
@@ -93,7 +98,7 @@ def install_vue_cli():
         click.echo(click.style('Installed vue-cli globally', fg='green'))
 
 
-@click.command()
+@vuecli.command()
 @click.argument('project')
 def startvueapp(project):
     """
@@ -102,7 +107,7 @@ def startvueapp(project):
     VueJsBuilder.startproject(project)
 
 
-@click.command()
+@vuecli.command()
 def vuedev():
     """
     Run frontend dev server via npm
@@ -110,7 +115,7 @@ def vuedev():
     VueJs.dev()
 
 
-@click.command()
+@vuecli.command()
 def vuebuild():
     """
     Build Vue.js project via npm

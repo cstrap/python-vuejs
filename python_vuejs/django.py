@@ -10,9 +10,14 @@ import json
 from collections import OrderedDict
 
 
-@click.command()
+@click.group()
+def djcli():
+    pass
+
+
+@djcli.command()
 @click.argument('project')
-def django_build(project):
+def djbuild(project):
     """
     Called inside `package.json`
     """
@@ -28,9 +33,9 @@ def django_build(project):
                     .replace('.js', ".js' %}\""))
 
 
-@click.command()
+@djcli.command()
 @click.argument('project')
-def djangofy_vue_project(project):
+def djangofy(project):
     """
     Convert Vue.js webpack project into a django app
     """
@@ -77,9 +82,9 @@ urlpatterns = [
     click.echo(click.style('Enjoy!', fg='green'))
 
 
-@click.command()
+@djcli.command()
 @click.argument('project')
-def django_start_vue_app(project):
+def djstartvueapp(project):
     """
     Run click commands on bash.
     """
