@@ -7,7 +7,10 @@ python-vuejs
 Gluing Python and Vue.js with a set of scripts in order to automate project and app builds
 """
 
-from setuptools import setup
+try:
+    from setuptools import setup
+except:
+    from distutils.core import setup
 
 import codecs
 
