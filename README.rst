@@ -24,7 +24,8 @@ Python and Vue.js gule
 .. image:: https://travis-ci.org/cstrap/python-vuejs.svg?branch=master
     :target: https://travis-ci.org/cstrap/python-vuejs
 
-
+.. image:: https://coveralls.io/repos/github/cstrap/python-vuejs/badge.svg?branch=master
+    :target: https://coveralls.io/github/cstrap/python-vuejs?branch=master
 
 Gluing Python and `Vue.js <https://vuejs.org/>`_ with a set of scripts that automate the dev and build process.
 
