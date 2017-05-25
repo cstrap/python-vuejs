@@ -20,7 +20,11 @@ Python and Vue.js gule
     
 .. image:: https://img.shields.io/pypi/status/python_vuejs.svg
     :target: https://pypi.python.org/pypi/python_vuejs
-    
+
+.. image:: https://travis-ci.org/cstrap/python-vuejs.svg?branch=master
+    :target: https://travis-ci.org/cstrap/python-vuejs
+
+
 
 Gluing Python and `Vue.js <https://vuejs.org/>`_ with a set of scripts that automate the dev and build process.
 
