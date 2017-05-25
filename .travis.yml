@@ -5,7 +5,10 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-
+  
+before_install:
+  - pip install six
+  
 install:
   - pip install -r requirements_dev.txt -U
 
