@@ -7,12 +7,9 @@ python-vuejs
 Gluing Python and Vue.js with a set of scripts in order to automate project and app builds
 """
 
-try:
-    from setuptools import setup
-except:
-    from distutils.core import setup
-
 import codecs
+
+from setuptools import setup
 
 requirements = [
     'Click>=6.0',
