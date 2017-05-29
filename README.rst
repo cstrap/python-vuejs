@@ -1,29 +1,23 @@
-=============================
+======================
 Python and Vue.js gule
-=============================
+======================
+
 .. image:: https://img.shields.io/pypi/v/python_vuejs.svg
         :target: https://pypi.python.org/pypi/python_vuejs
-
 .. image:: https://pyup.io/repos/github/cstrap/python-vuejs/shield.svg
      :target: https://pyup.io/repos/github/cstrap/python-vuejs/
      :alt: Updates
-
 .. image:: https://pyup.io/repos/github/cstrap/python-vuejs/python-3-shield.svg
      :target: https://pyup.io/repos/github/cstrap/python-vuejs/
      :alt: Python 3
-
 .. image:: https://img.shields.io/pypi/l/python_vuejs.svg
     :target: https://pypi.python.org/pypi/python_vuejs
-    
 .. image:: https://img.shields.io/pypi/pyversions/python_vuejs.svg
     :target: https://pypi.python.org/pypi/python_vuejs
-    
 .. image:: https://img.shields.io/pypi/status/python_vuejs.svg
     :target: https://pypi.python.org/pypi/python_vuejs
-
 .. image:: https://travis-ci.org/cstrap/python-vuejs.svg?branch=master
     :target: https://travis-ci.org/cstrap/python-vuejs
-
 .. image:: https://coveralls.io/repos/github/cstrap/python-vuejs/badge.svg?branch=master
     :target: https://coveralls.io/github/cstrap/python-vuejs?branch=master
 
@@ -42,9 +36,9 @@ Cheers! 🍻
 * Free software: MIT license
 * Documentation: https://pythonhosted.org/python_vuejs.
 
-------------------
+------------
 Requirements
-------------------
+------------
 
 * Python 2.7+ or 3.4+
 * nodejs > 5 and npm > 3
@@ -72,7 +66,7 @@ Commands reference
     vuedev         Run frontend dev server via npm
 
 Vue.js - A quick overview
--------------------
+-------------------------
 
 Wrappers around ``npm`` and ``vue``.::
 
@@ -88,7 +82,7 @@ Before you go on production run:::
 
 
 Django - A quick overview
--------------------
+-------------------------
 
 Run ``pyvue djstartvueapp`` into your django project directory::
 
@@ -112,7 +106,7 @@ TODO
 * Supporting other frameworks
 
 Credits
----------
+-------
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
