@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, division, print_function
+
+"""
+Base template to develop new cli wrapper
+Once ready add the cli on cli.py
+"""
+
+import click
+
+
+@click.group()
+def cli():
+    """ 
+    Click entry point: framework-cli commands group 
+    By convention all new cli has a cli function with a pass statement
+    """
+    pass
+
+
+@cli.command()
+def joke(project):
+    """
+    Joke command
+    """
+    click.echo(click.style('This is a joke function command!', fg='green'))

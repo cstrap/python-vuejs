@@ -24,11 +24,15 @@ urlpatterns = [
 
 
 @click.group()
-def djcli():
+def cli():
+    """ 
+    Click entry point: django-cli commands group 
+    By convention all new cli has a cli function with a pass statement
+    """
     pass
 
 
-@djcli.command()
+@cli.command()
 @click.argument('project')
 def djbuild(project):
     """
@@ -46,7 +50,7 @@ def djbuild(project):
                     .replace('.js', ".js' %}\""))
 
 
-@djcli.command()
+@cli.command()
 @click.argument('project')
 def djangofy(project):
     """
@@ -83,7 +87,7 @@ def djangofy(project):
     click.echo(click.style('Enjoy!', fg='green'))
 
 
-@djcli.command()
+@cli.command()
 @click.argument('project')
 def djstartvueapp(project):
     """
