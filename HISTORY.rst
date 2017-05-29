@@ -2,12 +2,17 @@
 History
 =======
 
-0.1.0 (2017-05-  )
+1.0.0 (2017-05-29)
 ------------------
 
-* Grouping all commands under ``pyvue`` 
-* Unit tests added
+Beta release
+
+* Grouping all commands under ``pyvue``
+* Added unit tests
+* Added travisCI configuration
+* Added coveralls and coverage configuration
 * Docs updated 
+* Better semver
 
 0.0.7 (2017-05-24)
 ------------------
