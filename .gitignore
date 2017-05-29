@@ -103,5 +103,9 @@ ENV/
 # mypy
 .mypy_cache/
 
-# IDEs and Editors
+# VSCode settings
 .vscode
+
+# temp dirs
+tmp/
+.tmp/
