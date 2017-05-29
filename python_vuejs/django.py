@@ -52,11 +52,8 @@ def djangofy(project):
     """
     Convert Vue.js webpack project into a django app
     """
-
     click.echo(click.style('Making Vue.js {project} into django app'.format(project=project), bg='blue', fg='white'))
-
     urls_py = URLS_TEMPLATE.format(project=project)
-
     try:
         os.makedirs('{project}/templates/{project}/'.format(project=project))
     except OSError:
@@ -69,7 +66,7 @@ def djangofy(project):
             f.write(urls_py)
         with open('package.json', 'r+') as f:
             pakckage_json = json.loads(''.join(f.readlines()), object_pairs_hook=OrderedDict)
-            pakckage_json['scripts']['build'] += ' && djbuild {project}'.format(project=project)
+            pakckage_json['scripts']['build'] += ' && pyvue djbuild {project}'.format(project=project)
             f.seek(0)
             f.write(json.dumps(pakckage_json, indent=2))
         with cd('config'):
