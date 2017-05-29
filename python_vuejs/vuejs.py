@@ -73,8 +73,8 @@ class VueJsBuilder(object):
 
 @click.group()
 def cli():
-    """ 
-    Click entry point: vue-cli commands group 
+    """
+    Click entry point: vue-cli commands group
     By convention all new cli has a cli function with a pass statement
     """
     pass
