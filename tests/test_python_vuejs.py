@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import unittest
+
 from click.testing import CliRunner
+from python_vuejs import cli
+from python_vuejs.vuejs import VueJs, VueJsBuilder
 
 try:
     from mock import patch
 except ImportError:
     from unittest.mock import patch
-
-from python_vuejs import cli
-from python_vuejs.vuejs import VueJsBuilder, VueJs
 
 
 class TestMainCli(unittest.TestCase):
@@ -104,4 +105,37 @@ class TestVueJsCli(unittest.TestCase):
 
 
 class TestDjangoCli(unittest.TestCase):
-    pass
+
+    def setUp(self):
+        self.runner = CliRunner()
+
+    def test_djbuild(self):
+        with self.runner.isolated_filesystem():
+            os.makedirs('templates/myapp')
+            with open(os.path.join('templates/myapp', 'index.html'), 'w') as f:
+                f.write("""<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>myapp</title>
+<link href=/static/css/app.8dec12ac5345f90e222a6effb448e777.css rel=stylesheet>
+</head>
+<body>
+<div id=app></div>
+<script type=text/javascript src=/static/js/manifest.77925171db9c5dd326bf.js></script>
+<script type=text/javascript src=/static/js/vendor.10682ac638c1f430abfc.js></script>
+<script type=text/javascript src=/static/js/app.5f58654c7e43b3645479.js></script>
+</body>
+</html>""")
+            self.runner.invoke(cli.cli, ['djbuild', 'myapp'])
+            with open(os.path.join('templates/myapp', 'index.html')) as f:
+                sut = f.readlines()
+                self.assertEqual('{% load staticfiles %}\n', sut[0])
+                expected = """<link href="{% static '/static/css/app.8dec12ac5345f90e222a6effb448e777.css' %}" rel=stylesheet>\n"""  # noqa
+                self.assertEqual(expected, sut[6])
+                expected = """<script type=text/javascript src="{% static '/static/js/manifest.77925171db9c5dd326bf.js' %}"></script>\n"""  # noqa
+                self.assertEqual(expected, sut[10])
+                expected = """<script type=text/javascript src="{% static '/static/js/vendor.10682ac638c1f430abfc.js' %}"></script>\n"""  # noqa
+                self.assertEqual(expected, sut[11])
+                expected = """<script type=text/javascript src="{% static '/static/js/app.5f58654c7e43b3645479.js' %}"></script>\n"""  # noqa
+                self.assertEqual(expected, sut[12])
