@@ -197,3 +197,13 @@ class TestDjangoCli(unittest.TestCase):
             with open('myapp/config/index.js') as f:
                 self.assertEqual(expected, ''.join(f.readlines()))
             self.assertEqual('Making Vue.js myapp into django app\nEnjoy!\n', result.output)
+
+    def test_djangofy_already_executed(self):
+        with self.runner.isolated_filesystem():
+            # Given
+            os.makedirs('myapp/templates/myapp')
+            open('myapp/templates/myapp/index.html', 'a').close()
+            # When
+            result = self.runner.invoke(cli.cli, ['djangofy', 'myapp'])
+            # Then
+            self.assertEqual('Making Vue.js myapp into django app\nCommand already executed\n', result.output)
