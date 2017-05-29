@@ -11,6 +11,17 @@ import click
 from .utils import cd, touch
 from .vuejs import VueJsBuilder
 
+URLS_TEMPLATE = """# -*- coding: utf-8 -*-
+
+from django.conf.urls import url
+from django.views.generic.base import TemplateView
+
+urlpatterns = [
+    url(r'^{project}/$', TemplateView.as_view(template_name='{project}/index.html'), name='vue_index'),
+]
+
+"""
+
 
 @click.group()
 def djcli():
@@ -44,16 +55,7 @@ def djangofy(project):
 
     click.echo(click.style('Making Vue.js {project} into django app'.format(project=project), bg='blue', fg='white'))
 
-    urls_py = """# -*- coding: utf-8 -*-
-
-from django.conf.urls import url
-from django.views.generic.base import TemplateView
-
-urlpatterns = [
-    url(r'^{project}/$', TemplateView.as_view(template_name='{project}/index.html'), name='vue_index'),
-]
-
-""".format(project=project)
+    urls_py = URLS_TEMPLATE.format(project=project)
 
     try:
         os.makedirs('{project}/templates/{project}/'.format(project=project))
