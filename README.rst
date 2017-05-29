@@ -65,6 +65,14 @@ Commands reference
     vuecheck       Check if node > 5 and npm > 3 are installed
     vuedev         Run frontend dev server via npm
 
+------------
+Installation
+------------
+
+To install python-vuejs, simply:::
+
+    $ pip install python-vuejs
+
 Vue.js - A quick overview
 -------------------------
 
