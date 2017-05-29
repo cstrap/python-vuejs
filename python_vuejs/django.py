@@ -1,18 +1,36 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, division, print_function
 
-import click
+import json
 import os
 import sys
-from .utils import touch, cd
-from .vuejs import VueJsBuilder
-import json
 from collections import OrderedDict
 
+import click
 
-@click.command()
+from .utils import cd, touch
+from .vuejs import VueJsBuilder
+
+URLS_TEMPLATE = """# -*- coding: utf-8 -*-
+
+from django.conf.urls import url
+from django.views.generic.base import TemplateView
+
+urlpatterns = [
+    url(r'^{project}/$', TemplateView.as_view(template_name='{project}/index.html'), name='vue_index'),
+]
+
+"""
+
+
+@click.group()
+def djcli():
+    pass
+
+
+@djcli.command()
 @click.argument('project')
-def django_build(project):
+def djbuild(project):
     """
     Called inside `package.json`
     """
@@ -28,26 +46,14 @@ def django_build(project):
                     .replace('.js', ".js' %}\""))
 
 
-@click.command()
+@djcli.command()
 @click.argument('project')
-def djangofy_vue_project(project):
+def djangofy(project):
     """
     Convert Vue.js webpack project into a django app
     """
-
     click.echo(click.style('Making Vue.js {project} into django app'.format(project=project), bg='blue', fg='white'))
-
-    urls_py = """# -*- coding: utf-8 -*-
-
-from django.conf.urls import url
-from django.views.generic.base import TemplateView
-
-urlpatterns = [
-    url(r'^{project}/$', TemplateView.as_view(template_name='{project}/index.html'), name='vue_index'),
-]
-
-""".format(project=project)
-
+    urls_py = URLS_TEMPLATE.format(project=project)
     try:
         os.makedirs('{project}/templates/{project}/'.format(project=project))
     except OSError:
@@ -60,7 +66,7 @@ urlpatterns = [
             f.write(urls_py)
         with open('package.json', 'r+') as f:
             pakckage_json = json.loads(''.join(f.readlines()), object_pairs_hook=OrderedDict)
-            pakckage_json['scripts']['build'] += ' && djbuild {project}'.format(project=project)
+            pakckage_json['scripts']['build'] += ' && pyvue djbuild {project}'.format(project=project)
             f.seek(0)
             f.write(json.dumps(pakckage_json, indent=2))
         with cd('config'):
@@ -77,9 +83,9 @@ urlpatterns = [
     click.echo(click.style('Enjoy!', fg='green'))
 
 
-@click.command()
+@djcli.command()
 @click.argument('project')
-def django_start_vue_app(project):
+def djstartvueapp(project):
     """
     Run click commands on bash.
     """

@@ -22,7 +22,7 @@ Assuming you work inside a virtualenv environment::
     (env) $ cd djvue
     (env) $ ./manage.py startapp backend
     ...
-    (env) $ djstartvueapp frontend
+    (env) $ pyvue djstartvueapp frontend
     ...
 
 That's it. 
@@ -37,7 +37,7 @@ Develop process
 Working on ``frontend`` app::
 
     (env) $ cd frontend
-    (env) $ npm run dev  # or vuedev
+    (env) $ npm run dev  # or pyvue vuedev
 
 This is decupled from django, used only for develop.
 
@@ -47,9 +47,11 @@ Build process
 The build process is::
 
     (env) $ cd frontend
-    (env) $ npm run build  # or vuebuild
+    (env) $ npm run build  # or pyvue vuebuild
+    (env) $ cd ..
+    (env) $ ./manage.py collectstatic --noinput
 
-``djstartvueapp`` added ``djvue`` command to the vue-project build that convert the ``index.html`` file into a django template (with ``loadstatic`` and ``static`` filter).
+You can add the "frontend" build to your pipeline (eg if you use fabric, ansible or others)
 
 Refer to the `Vue.js https://vuejs.org/`_ documentation for other stuff not related to python-vuejs wrappers.
 

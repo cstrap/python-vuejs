@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 
+from collections import namedtuple
+from subprocess import check_output
+
 import click
+
 from .utils import cd
 
 try:
     from subprocess import call as run
 except ImportError:
     from subprocess import run
-
-from subprocess import check_output
 
 
 class VueJs(object):
@@ -60,18 +62,22 @@ class VueJs(object):
 class VueJsBuilder(object):
     @staticmethod
     def startproject(project):
+        nt = namedtuple('Result', ['status', 'message', 'color'])
         if VueJs.vue_cli_check():
             VueJs.project_setup(project)
-            click.echo(click.style('Installing dependencies\n', fg='green'))
             VueJs.install_dependencies(project)
-            return True
+            return nt(True, 'Application and dependencies installed\n', 'green')
         else:
-            click.echo(click.style('Please install vue-cli via `vuecli` command', fg='white', bg='red'))
-            return False
+            return nt(False, 'Please install vue-cli via `vuecli` command', 'red')
 
 
-@click.command()
-def check_env():
+@click.group()
+def vuecli():
+    pass
+
+
+@vuecli.command()
+def vuecheck():
     """
     Check if node > 5 and npm > 3 are installed
     """
@@ -81,8 +87,8 @@ def check_env():
         click.echo(click.style('Missing node and npm installation', fg='red'))
 
 
-@click.command()
-def install_vue_cli():
+@vuecli.command()
+def installvuecli():
     """
     Install vue-cli
     """
@@ -93,16 +99,17 @@ def install_vue_cli():
         click.echo(click.style('Installed vue-cli globally', fg='green'))
 
 
-@click.command()
+@vuecli.command()
 @click.argument('project')
 def startvueapp(project):
     """
     Init vue project via vue-cli
     """
-    VueJsBuilder.startproject(project)
+    result = VueJsBuilder.startproject(project)
+    click.echo(click.style(result.message, fg=result.color))
 
 
-@click.command()
+@vuecli.command()
 def vuedev():
     """
     Run frontend dev server via npm
@@ -110,7 +117,7 @@ def vuedev():
     VueJs.dev()
 
 
-@click.command()
+@vuecli.command()
 def vuebuild():
     """
     Build Vue.js project via npm

@@ -4,6 +4,14 @@ python\_vuejs package
 Submodules
 ----------
 
+python\_vuejs\.cli module
+-------------------------
+
+.. automodule:: python_vuejs.cli
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 python\_vuejs\.django module
 ----------------------------
 
