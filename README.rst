@@ -53,70 +53,63 @@ Requirements
 Commands reference
 ------------------
 
-Vue.js
-------
+``python-vuejs`` is shipped with a nice cli built on top of click.::
 
-+-----------------+-----------------------------------------------------+
-| Command         | Description                                         |
-+=================+=====================================================+ 
-| ``checkenv``    | Check if ``node`` > 5 and ``npm`` > 3 are installed |
-+-----------------+-----------------------------------------------------+
-| ``vuecli``      | Install vue-cli                                     |
-+-----------------+-----------------------------------------------------+
-| ``startvueapp`` | Init Vue.js project via vue-cli                     |
-+-----------------+-----------------------------------------------------+
-| ``vuedev``      | Start frontend dev server                           |
-+-----------------+-----------------------------------------------------+
-| ``vuebuild``    | Build Vue.js project via ``npm``                    |
-+-----------------+-----------------------------------------------------+
+    (env) $ pyvue --help
+    Usage: pyvue [OPTIONS] COMMAND [ARGS]...
 
-Django
-------
+    Options:
+    --help  Show this message and exit.
 
-Run ``djstartvueapp`` into your django project directory::
+    Commands:
+    djangofy       Convert Vue.js webpack project into a django...
+    djbuild        Called inside `package.json`
+    djstartvueapp  Run click commands on bash.
+    installvuecli  Install vue-cli
+    startvueapp    Init vue project via vue-cli
+    vuebuild       Build Vue.js project via npm
+    vuecheck       Check if node > 5 and npm > 3 are installed
+    vuedev         Run frontend dev server via npm
 
-    (env) $ djstartvueapp myapp
+Vue.js - A quick overview
+-------------------
+
+Wrappers around ``npm`` and ``vue``.::
+
+    (env) $ cd myapp
+    (env) $ pyvue vuedev 
+    ...
+
+Before you go on production run:::
+
+    (env) $ cd myapp 
+    (env) $ pyvue vuebuild
+    ...
+
+
+Django - A quick overview
+-------------------
+
+Run ``pyvue djstartvueapp`` into your django project directory::
+
+    (env) $ pyvue djstartvueapp myapp
     ...
     Enjoy!
 
-Follow the django quick start on docs to a complete overview.
-
-List of commands avaiable:
-
-+-------------------+------------------------------------------------+
-| Command           | Description                                    |
-+===================+================================================+                            
-| ``djvue``         | Make Vue.js project into a django app          |
-+-------------------+------------------------------------------------+
-| ``djbuild``       | Inject into the django way into ``index.html`` |
-+-------------------+------------------------------------------------+
-| ``djstartvueapp`` | Create Vue.js django app                       |
-+-------------------+------------------------------------------------+
-
-Flask
------
-
-* TODO
-
-+---------+----------------------------------------------+
-| Command | Description                                  |
-+=========+==============================================+  
-| WIP     | WIP                                          |
-+---------+----------------------------------------------+
+Command installs all dependencies and make the ``myapp`` a django app.
 
 --------
 Features
 --------
 
 * Vue.js starter via vue-cli
-* Integration with django via ``djstartvueapp``
+* Django integrations with no dependencies
 
 TODO
 ----
 
 * Supporting flask, eg https://github.com/taogeT/flask-vue (without js inside package)
 * Supporting other frameworks
-* Some tests 
 
 Credits
 ---------
