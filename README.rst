@@ -76,16 +76,18 @@ To install python-vuejs, simply:::
 Vue.js - A quick overview
 -------------------------
 
-Wrappers around ``npm`` and ``vue``.::
+Wrappers around ``npm`` and ``vue``.
+These commands automate the boring stuff of setup vue via vue-cli:::
 
-    (env) $ cd myapp
-    (env) $ pyvue vuedev 
+    $ pyvue startvueapp myapp
+    $ cd myapp
+    $ pyvue vuedev 
     ...
 
 Before you go on production run:::
 
-    (env) $ cd myapp 
-    (env) $ pyvue vuebuild
+    $ cd myapp 
+    $ pyvue vuebuild
     ...
 
 
