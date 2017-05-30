@@ -51,22 +51,18 @@ lint: ## check style with flake8
 	flake8 python_vuejs tests
 
 test: ## run tests quickly with the default Python
-	
-		python setup.py test
+	python setup.py test
 
 test-all: ## run tests on every Python version with tox
 	tox
 
 coverage-html: ## check code coverage quickly with the default Python
-	
-		coverage run --source python_vuejs setup.py test
-	
-		coverage report -m
-		coverage html
-		$(BROWSER) htmlcov/index.html
+	coverage run --source python_vuejs setup.py test
+	coverage report -m
+	coverage html
+	$(BROWSER) htmlcov/index.html
 
 coverage: ## check code coverage with no html report
-
 	coverage run --source python_vuejs setup.py test
 	coverage report -m
 
@@ -92,3 +88,7 @@ dist: clean ## builds source and wheel package
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
+
+isort: clean ## sort imports
+	isort -rc python_vuejs
+	isort -rc tests
