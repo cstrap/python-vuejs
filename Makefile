@@ -57,13 +57,18 @@ test: ## run tests quickly with the default Python
 test-all: ## run tests on every Python version with tox
 	tox
 
-coverage: ## check code coverage quickly with the default Python
+coverage-html: ## check code coverage quickly with the default Python
 	
 		coverage run --source python_vuejs setup.py test
 	
 		coverage report -m
 		coverage html
 		$(BROWSER) htmlcov/index.html
+
+coverage: ## check code coverage with no html report
+
+	coverage run --source python_vuejs setup.py test
+	coverage report -m
 
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/python_vuejs.rst
