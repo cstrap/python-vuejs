@@ -2,11 +2,17 @@
 History
 =======
 
+1.0.3 (2017-05-30)
+------------------
+
+* Housekeeping
+
 1.0.2 (2017-05-30)
 ------------------
 
 * Better coverage
 * Make commands
+* Dropped bumpversion in favour of punch.py 
 
 1.0.1 (2017-05-30)
 ------------------
