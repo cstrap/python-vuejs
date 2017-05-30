@@ -72,11 +72,15 @@ class VueJsBuilder(object):
 
 
 @click.group()
-def vuecli():
+def cli():
+    """
+    Click entry point: vue-cli commands group
+    By convention all new cli has a cli function with a pass statement
+    """
     pass
 
 
-@vuecli.command()
+@cli.command()
 def vuecheck():
     """
     Check if node > 5 and npm > 3 are installed
@@ -87,7 +91,7 @@ def vuecheck():
         click.echo(click.style('Missing node and npm installation', fg='red'))
 
 
-@vuecli.command()
+@cli.command()
 def installvuecli():
     """
     Install vue-cli
@@ -99,7 +103,7 @@ def installvuecli():
         click.echo(click.style('Installed vue-cli globally', fg='green'))
 
 
-@vuecli.command()
+@cli.command()
 @click.argument('project')
 def startvueapp(project):
     """
@@ -109,7 +113,7 @@ def startvueapp(project):
     click.echo(click.style(result.message, fg=result.color))
 
 
-@vuecli.command()
+@cli.command()
 def vuedev():
     """
     Run frontend dev server via npm
@@ -117,7 +121,7 @@ def vuedev():
     VueJs.dev()
 
 
-@vuecli.command()
+@cli.command()
 def vuebuild():
     """
     Build Vue.js project via npm

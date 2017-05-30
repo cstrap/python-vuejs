@@ -24,11 +24,15 @@ urlpatterns = [
 
 
 @click.group()
-def djcli():
+def cli():
+    """
+    Click entry point: django-cli commands group
+    By convention all new cli has a cli function with a pass statement
+    """
     pass
 
 
-@djcli.command()
+@cli.command()
 @click.argument('project')
 def djbuild(project):
     """
@@ -46,7 +50,7 @@ def djbuild(project):
                     .replace('.js', ".js' %}\""))
 
 
-@djcli.command()
+@cli.command()
 @click.argument('project')
 def djangofy(project):
     """
@@ -83,15 +87,14 @@ def djangofy(project):
     click.echo(click.style('Enjoy!', fg='green'))
 
 
-@djcli.command()
+@cli.command()
 @click.argument('project')
 def djstartvueapp(project):
     """
     Run click commands on bash.
     """
-    if os.path.isfile('manage.py'):
-        click.echo(click.style('Creating {project}'.format(project=project), fg='green'))
-        if VueJsBuilder.startproject(project):
-            djangofy_vue_project()
+    click.echo(click.style('Creating {project}'.format(project=project), fg='green'))
+    if os.path.isfile('manage.py') and VueJsBuilder.startproject(project).status:
+        djangofy()
     else:
         click.echo(click.style('Invalid django project directory', fg='red'))

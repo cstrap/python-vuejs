@@ -1,6 +1,8 @@
 [run]
 branch = true
-
+omit =
+    python_vuejs/cli.py
+    
 [report]
 show_missing = true
 # skip_covered = true
@@ -8,6 +10,7 @@ show_missing = true
 exclude_lines =
     if __name__ == .__main__.:
     except ImportError
+    def cli
 
 [html]
 title = "[python-vuejs] Coverage Report"

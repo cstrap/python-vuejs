@@ -4,10 +4,17 @@
 import json
 import os
 import unittest
+from collections import namedtuple
 
 from click.testing import CliRunner
 
 from python_vuejs import cli
+from python_vuejs.vuejs import VueJsBuilder
+
+try:
+    from mock import patch
+except ImportError:
+    from unittest.mock import patch
 
 
 class TestDjangoCli(unittest.TestCase):
@@ -111,3 +118,23 @@ class TestDjangoCli(unittest.TestCase):
             result = self.runner.invoke(cli.cli, ['djangofy', 'myapp'])
             # Then
             self.assertEqual('Making Vue.js myapp into django app\nCommand already executed\n', result.output)
+
+    @patch('python_vuejs.django.djangofy')
+    def test_djstartvueapp_django_ok(self, mock_djangofy):
+        with self.runner.isolated_filesystem():
+            # Given
+            open('manage.py', 'a').close()
+            nt = namedtuple('Result', ['status', 'message', 'color'])
+            return_value = nt(True, 'Application and dependencies installed\n', 'green')
+
+            with patch.object(VueJsBuilder, 'startproject', return_value=return_value) as mock_vuejsbuilder:
+                # When
+                result = self.runner.invoke(cli.cli, ['djstartvueapp', 'myapp'])
+                # Then
+                mock_vuejsbuilder.assert_called_once()
+                mock_djangofy.assert_called_once()
+                self.assertEqual('Creating myapp\n', result.output)
+
+    def test_djstartvueapp_django_ko(self):
+        result = self.runner.invoke(cli.cli, ['djstartvueapp', 'myapp'])
+        self.assertEqual('Creating myapp\nInvalid django project directory\n', result.output)
