@@ -1,0 +1,12 @@
+lintly:
+  bot: null
+
+languages:
+  python:
+    version: 3
+
+linters:
+  eslint:
+    enabled: false
+  flake8:
+    enabled: true
