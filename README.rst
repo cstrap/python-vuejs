@@ -3,23 +3,22 @@ Python and Vue.js gule
 ======================
 
 .. image:: https://img.shields.io/pypi/v/python_vuejs.svg
-        :target: https://pypi.python.org/pypi/python_vuejs
+    :target: https://pypi.python.org/pypi/python_vuejs
 .. image:: https://pyup.io/repos/github/cstrap/python-vuejs/shield.svg
-     :target: https://pyup.io/repos/github/cstrap/python-vuejs/
-     :alt: Updates
+    :target: https://pyup.io/repos/github/cstrap/python-vuejs/
+    :alt: Updates
 .. image:: https://pyup.io/repos/github/cstrap/python-vuejs/python-3-shield.svg
-     :target: https://pyup.io/repos/github/cstrap/python-vuejs/
-     :alt: Python 3
+    :target: https://pyup.io/repos/github/cstrap/python-vuejs/
+    :alt: Python 3
 .. image:: https://img.shields.io/pypi/l/python_vuejs.svg
-    :target: https://pypi.python.org/pypi/python_vuejs
-.. image:: https://img.shields.io/pypi/pyversions/python_vuejs.svg
-    :target: https://pypi.python.org/pypi/python_vuejs
-.. image:: https://img.shields.io/pypi/status/python_vuejs.svg
     :target: https://pypi.python.org/pypi/python_vuejs
 .. image:: https://travis-ci.org/cstrap/python-vuejs.svg?branch=master
     :target: https://travis-ci.org/cstrap/python-vuejs
 .. image:: https://coveralls.io/repos/github/cstrap/python-vuejs/badge.svg?branch=master
     :target: https://coveralls.io/github/cstrap/python-vuejs?branch=master
+.. image:: https://readthedocs.org/projects/python-vuejs/badge/?version=latest
+    :target: http://python-vuejs.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
 Gluing Python and `Vue.js <https://vuejs.org/>`_ with a set of scripts that automate the dev and build process.
 
@@ -34,7 +33,7 @@ Thanks!
 Cheers! 🍻
 
 * Free software: MIT license
-* Documentation: https://pythonhosted.org/python_vuejs.
+* Documentation: https://python-vuejs.rtfd.io
 
 ------------
 Requirements
