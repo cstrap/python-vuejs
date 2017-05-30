@@ -108,11 +108,12 @@ Features
 
 * Vue.js starter via vue-cli
 * Django integrations with no dependencies
+* Detach backend and frontend with less effort
 
 TODO
 ----
 
-* Supporting flask, eg https://github.com/taogeT/flask-vue (without js inside package)
+* Supporting Flask, eg https://github.com/taogeT/flask-vue (without js inside package)
 * Supporting other frameworks
 
 Credits

@@ -24,14 +24,14 @@ class TestVueJsCli(unittest.TestCase):
         mocked.return_value = True
         result = self.runner.invoke(cli.cli, ['vuecheck'])
         self.assertEqual(0, result.exit_code)
-        self.assertIn('Found node and npm', result.output)
+        self.assertEqual('Found node and npm\n', result.output)
 
     @patch('python_vuejs.vuejs.VueJs.node_check')
-    def test_check_node_environment_ok(self, mocked):
+    def test_check_node_environment_ko(self, mocked):
         mocked.return_value = False
         result = self.runner.invoke(cli.cli, ['vuecheck'])
         self.assertEqual(0, result.exit_code)
-        self.assertIn('Missing node and npm installation', result.output)
+        self.assertEqual('Missing node and npm installation\n', result.output)
 
     @patch('python_vuejs.vuejs.VueJs.vue_cli_check')
     def test_find_valid_vue_no_install_vuecli(self, mocked):

@@ -11,6 +11,7 @@ import click
 from .utils import cd, touch
 from .vuejs import VueJsBuilder
 
+
 URLS_TEMPLATE = """# -*- coding: utf-8 -*-
 
 from django.conf.urls import url

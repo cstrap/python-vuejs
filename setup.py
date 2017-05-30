@@ -16,7 +16,13 @@ requirements = [
     'colorama',
 ]
 
-test_requirements = []
+test_requirements = [
+    'colorama',
+    'Click>=6.0',
+    'six',
+    'coveralls',
+    'flake8',
+]
 
 setup(
     name='python_vuejs',
@@ -42,7 +48,7 @@ setup(
     zip_safe=False,
     keywords='python_vuejs',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
