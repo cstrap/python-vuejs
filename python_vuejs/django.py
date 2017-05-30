@@ -93,9 +93,8 @@ def djstartvueapp(project):
     """
     Run click commands on bash.
     """
-    if os.path.isfile('manage.py'):
-        click.echo(click.style('Creating {project}'.format(project=project), fg='green'))
-        if VueJsBuilder.startproject(project).status:
-            djangofy()
+    click.echo(click.style('Creating {project}'.format(project=project), fg='green'))
+    if os.path.isfile('manage.py') and VueJsBuilder.startproject(project).status:
+        djangofy()
     else:
         click.echo(click.style('Invalid django project directory', fg='red'))

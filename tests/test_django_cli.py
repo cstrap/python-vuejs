@@ -4,17 +4,17 @@
 import json
 import os
 import unittest
+from collections import namedtuple
 
 from click.testing import CliRunner
 
 from python_vuejs import cli
-from collections import namedtuple
+from python_vuejs.vuejs import VueJsBuilder
+
 try:
     from mock import patch
 except ImportError:
     from unittest.mock import patch
-
-from python_vuejs.vuejs import VueJsBuilder
 
 
 class TestDjangoCli(unittest.TestCase):
@@ -137,4 +137,4 @@ class TestDjangoCli(unittest.TestCase):
 
     def test_djstartvueapp_django_ko(self):
         result = self.runner.invoke(cli.cli, ['djstartvueapp', 'myapp'])
-        self.assertEqual('Invalid django project directory\n', result.output)
+        self.assertEqual('Creating myapp\nInvalid django project directory\n', result.output)
