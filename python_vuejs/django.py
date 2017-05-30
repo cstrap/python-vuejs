@@ -95,7 +95,7 @@ def djstartvueapp(project):
     """
     if os.path.isfile('manage.py'):
         click.echo(click.style('Creating {project}'.format(project=project), fg='green'))
-        if VueJsBuilder.startproject(project):
-            djangofy_vue_project()
+        if VueJsBuilder.startproject(project).status:
+            djangofy()
     else:
         click.echo(click.style('Invalid django project directory', fg='red'))
