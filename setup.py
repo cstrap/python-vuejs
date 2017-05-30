@@ -26,7 +26,7 @@ test_requirements = [
 
 setup(
     name='python_vuejs',
-    version='1.0.3',
+    version='1.0.4',
     description="Gluing Python and Vue.js with a set of scripts in order to automate project and app builds",
     long_description=codecs.open('README.rst', 'r', 'utf-8').read(),
     author="Christian Strappazzon",
