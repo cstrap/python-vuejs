@@ -32,9 +32,6 @@ Feel free to contribute with PRs and opening issues.
 Thanks!
 Cheers! 🍻
 
-* Free software: MIT license
-* Documentation: https://python-vuejs.rtfd.io
-
 ------------
 Requirements
 ------------
