@@ -90,12 +90,14 @@ def djangofy(project):
 
 @cli.command()
 @click.argument('project')
-def djstartvueapp(project):
+@click.pass_context
+def djstartvueapp(ctx, project):
     """
     Run click commands on bash.
     """
     click.echo(click.style('Creating {project}'.format(project=project), fg='green'))
     if os.path.isfile('manage.py') and VueJsBuilder.startproject(project).status:
-        djangofy()
+        ctx.forward(djangofy)
+        ctx.invoke(djangofy, project=project)
     else:
-        click.echo(click.style('Invalid django project directory', fg='red'))
+        click.echo(click.style('Invalid django project directory. `manage.py` not found.', fg='red'))

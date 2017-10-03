@@ -43,19 +43,23 @@ class VueJs(object):
 
     @staticmethod
     def project_setup(project):
+        click.echo(click.style('running `vue init webpack {project}`'.format(project=project), fg='yellow'))
         run('vue init webpack {project}'.format(project=project).split())
 
     @staticmethod
     def install_dependencies(project):
         with cd(project):
+            click.echo(click.style('running `npm install`', fg='yellow'))
             run('npm install'.split())
 
     @staticmethod
     def dev():
+        click.echo(click.style('running `npm run dev`', fg='yellow'))
         run('npm run dev'.split())
 
     @staticmethod
     def build():
+        click.echo(click.style('running `npm run build`', fg='yellow'))
         run('npm run build'.split())
 
 
