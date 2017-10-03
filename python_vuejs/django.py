@@ -100,4 +100,4 @@ def djstartvueapp(ctx, project):
         ctx.forward(djangofy)
         ctx.invoke(djangofy, project=project)
     else:
-        click.echo(click.style('Invalid django project directory', fg='red'))
+        click.echo(click.style('Invalid django project directory. `manage.py` not found.', fg='red'))
