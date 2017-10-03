@@ -2,6 +2,14 @@
 History
 =======
 
+1.0.7 (2017-10-03)
+------------------
+
+* Better error message
+* Logging
+* Passing context - Click issue on calling function command
+
+
 1.0.6 (2017-05-30)
 ------------------
 
@@ -27,7 +35,7 @@ History
 
 * Better coverage
 * Make commands
-* Dropped bumpversion in favour of punch.py 
+* Dropped bumpversion in favour of punch.py
 
 1.0.1 (2017-05-30)
 ------------------
@@ -44,7 +52,7 @@ Beta release
 * Added unit tests
 * Added travisCI configuration
 * Added coveralls and coverage configuration
-* Docs updated 
+* Docs updated
 * Better semver
 
 0.0.7 (2017-05-24)
