@@ -2,4 +2,4 @@
 
 __author__ = """Christian Strappazzon"""
 __email__ = 'lab@strap.it'
-__version__ = '1.0.6'
+__version__ = '1.0.7'
