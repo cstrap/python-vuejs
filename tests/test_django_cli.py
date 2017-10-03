@@ -135,4 +135,4 @@ class TestDjangoCli(unittest.TestCase):
 
     def test_djstartvueapp_django_ko(self):
         result = self.runner.invoke(cli.cli, ['djstartvueapp', 'myapp'])
-        self.assertEqual('Creating myapp\nInvalid django project directory\n', result.output)
+        self.assertEqual('Creating myapp\nInvalid django project directory. `manage.py` not found.\n', result.output)
