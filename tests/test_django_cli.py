@@ -119,8 +119,7 @@ class TestDjangoCli(unittest.TestCase):
             # Then
             self.assertEqual('Making Vue.js myapp into django app\nCommand already executed\n', result.output)
 
-    @patch('python_vuejs.django.djangofy')
-    def test_djstartvueapp_django_ok(self, mock_djangofy):
+    def test_djstartvueapp_django_ok(self):
         with self.runner.isolated_filesystem():
             # Given
             open('manage.py', 'a').close()
@@ -132,8 +131,7 @@ class TestDjangoCli(unittest.TestCase):
                 result = self.runner.invoke(cli.cli, ['djstartvueapp', 'myapp'])
                 # Then
                 mock_vuejsbuilder.assert_called_once()
-                mock_djangofy.assert_called_once()
-                self.assertEqual('Creating myapp\n', result.output)
+                self.assertEqual('Creating myapp\nMaking Vue.js myapp into django app\n', result.output)
 
     def test_djstartvueapp_django_ko(self):
         result = self.runner.invoke(cli.cli, ['djstartvueapp', 'myapp'])
