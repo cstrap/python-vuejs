@@ -45,9 +45,9 @@ def djbuild(project):
         f.seek(0)
         lines.insert(0, "{% load staticfiles %}\n")
         for line in lines:
-            f.write(line.replace('href=/', "href=\"{% static '/")
+            f.write(line.replace('href=/', "href=\"{% static '")
                     .replace('.css', ".css' %}\"")
-                    .replace('src=/', "src=\"{% static '/")
+                    .replace('src=/', "src=\"{% static '")
                     .replace('.js', ".js' %}\""))
 
 
