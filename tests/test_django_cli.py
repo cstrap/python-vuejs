@@ -47,13 +47,13 @@ class TestDjangoCli(unittest.TestCase):
             with open(os.path.join('templates/myapp', 'index.html')) as f:
                 sut = f.readlines()
                 self.assertEqual('{% load staticfiles %}\n', sut[0])
-                expected = """<link href="{% static '/static/css/app.8dec12ac5345f90e222a6effb448e777.css' %}" rel=stylesheet>\n"""  # noqa
+                expected = """<link href="{% static 'static/css/app.8dec12ac5345f90e222a6effb448e777.css' %}" rel=stylesheet>\n"""  # noqa
                 self.assertEqual(expected, sut[6])
-                expected = """<script type=text/javascript src="{% static '/static/js/manifest.77925171db9c5dd326bf.js' %}"></script>\n"""  # noqa
+                expected = """<script type=text/javascript src="{% static 'static/js/manifest.77925171db9c5dd326bf.js' %}"></script>\n"""  # noqa
                 self.assertEqual(expected, sut[10])
-                expected = """<script type=text/javascript src="{% static '/static/js/vendor.10682ac638c1f430abfc.js' %}"></script>\n"""  # noqa
+                expected = """<script type=text/javascript src="{% static 'static/js/vendor.10682ac638c1f430abfc.js' %}"></script>\n"""  # noqa
                 self.assertEqual(expected, sut[11])
-                expected = """<script type=text/javascript src="{% static '/static/js/app.5f58654c7e43b3645479.js' %}"></script>\n"""  # noqa
+                expected = """<script type=text/javascript src="{% static 'static/js/app.5f58654c7e43b3645479.js' %}"></script>\n"""  # noqa
                 self.assertEqual(expected, sut[12])
 
     def test_djangofy(self):
