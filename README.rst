@@ -20,6 +20,11 @@ Python and Vue.js gule
     :target: http://python-vuejs.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
+**UPDATE**: at the moment project is not supported anymore, due to the rapid evolving of the JavaScript ecosystem. 
+It was born like a POF to allow me to study a bit of JavaScript and VueJS and try some hacks with `click`. 
+Maybe in the future, the project could reborn. 
+Thanks for using it!
+
 Gluing Python and `Vue.js <https://vuejs.org/>`_ with a set of scripts that automate the dev and build process.
 
 Projects aims to be agnostic, just use it in order to automate the boring stuff to setup a Vue.js project.
@@ -37,7 +42,8 @@ Requirements
 ------------
 
 * Python 2.7+ or 3.4+
-* nodejs > 5 and npm > 3
+* nodejs > 5 and npm > 3 (could not work with new versions)
+* *nix like SO, Windows not supported
 
 ------------------
 Commands reference
@@ -90,7 +96,7 @@ Before you go on production run:::
 Django - A quick overview
 -------------------------
 
-Run ``pyvue djstartvueapp`` into your django project directory::
+Run ``pyvue djstartvueapp`` **into your django project directory**::
 
     (env) $ pyvue djstartvueapp myapp
     ...
@@ -111,6 +117,7 @@ TODO
 
 * Supporting Flask, eg https://github.com/taogeT/flask-vue (without js inside package)
 * Supporting other frameworks
+* Supporting windows
 
 Credits
 -------
