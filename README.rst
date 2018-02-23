@@ -20,10 +20,18 @@ Python and Vue.js gule
     :target: http://python-vuejs.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-**UPDATE**: at the moment project is not supported anymore, due to the rapid evolving of the JavaScript ecosystem. 
+------
+UPDATE
+------
+
+At the moment project is not supported anymore, due to the rapid evolving of the JavaScript ecosystem. 
 It was born like a POF to allow me to study a bit of JavaScript and VueJS and try some hacks with `click`. 
 Maybe in the future, the project could reborn. 
 Thanks for using it!
+
+-------
+The aim
+-------
 
 Gluing Python and `Vue.js <https://vuejs.org/>`_ with a set of scripts that automate the dev and build process.
 
